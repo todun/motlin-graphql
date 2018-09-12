@@ -1,0 +1,59 @@
+type Query {
+  me: User!
+  stores: [Store!]!
+  store(id: ID!): Store!
+  keys(storeId: ID): [Key!]!
+}
+
+type Mutation {
+  register(
+    name: String!
+    email: String!
+    password: String!
+    company: String
+  ): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  createToken(
+    client_id: String!
+    client_secret: String
+    grant_type: GRANT_TYPE
+  ): AuthPayload!
+  updateStore(storeId: ID!, name: String!): Store!
+  createStore(name: String!): Store!
+}
+
+type User {
+  id: ID!
+  name: String!
+  company: String
+  email: String!
+}
+
+type Store {
+  id: ID!
+  noneUuid: ID!
+  name: String!
+  users: [User!]!
+}
+
+type Key {
+  user_id: ID!
+  store_id: ID!
+  client_id: String!
+  client_secret: String!
+}
+
+type AuthPayload {
+  identifier: String!
+  access_token: String!
+  refresh_token: String!
+  token_type: String!
+  expires: Int!
+  expires_in: Int!
+  user: User!
+}
+
+enum GRANT_TYPE {
+  implicit
+  client_credentials
+}

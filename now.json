@@ -1,0 +1,7 @@
+{
+  "alias": "cli.moltin.com",
+  "dotenv": true,
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
