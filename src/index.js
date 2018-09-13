@@ -27,7 +27,8 @@ const server = new ApolloServer({
       req.get('Authorization').replace('Bearer ', '')
   }),
   introspection: true,
-  playground: process.env.NODE_ENV !== 'production'
+  // introspection: process.env.NODE_ENV !== 'production',
+  playground: true
 })
 
 server.listen().then(({ url }) => {
