@@ -97,6 +97,7 @@ type CardConnect {
   username: String
   password: String
   test: Boolean
+  enabled: Boolean
 }
 
 type Manual {
