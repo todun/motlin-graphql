@@ -13,7 +13,7 @@ module.exports = {
   },
 
   // TODO: Add error handling
-  async updateStore(_, { storeId, name }, { dataSources }) {
+  async updateStore(_, { id: storeId, name }, { dataSources }) {
     const {
       data: { id: noneUuid, uuid: id, ...store }
     } = await dataSources.storesAPI.updateStore(storeId, { name })
