@@ -23,5 +23,17 @@ module.exports = {
       noneUuid,
       ...store
     }
+  },
+
+  // TODO: Add error handling
+  async switchStore(_, { id }, { dataSources }) {
+    const {
+      data: { status, title: message }
+    } = await dataSources.storesAPI.switchStore(id)
+
+    return {
+      success: status === 200,
+      message
+    }
   }
 }

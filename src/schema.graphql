@@ -20,6 +20,7 @@ type Mutation {
   ): AuthPayload!
   updateStore(id: ID!, name: String!): Store!
   createStore(name: String!): Store!
+  switchStore(id: ID!): SuccessPayload!
 }
 
 type User {
@@ -51,6 +52,15 @@ type AuthPayload {
   expires: Int!
   expires_in: Int!
   user: User!
+}
+
+type SuccessPayload {
+  success: Boolean!
+  message: String
+}
+
+type Gateway {
+  id: ID!
 }
 
 enum GRANT_TYPE {
