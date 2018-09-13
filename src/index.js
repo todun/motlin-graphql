@@ -7,6 +7,7 @@ const { join } = require('path')
 const resolvers = require('./resolvers')
 const permissions = require('./permissions')
 const storesAPI = require('./datasources/stores')
+const gatewaysAPI = require('./datasources/gateways')
 
 const typeDefs = importSchema(join(__dirname, 'schema.graphql'))
 
@@ -17,7 +18,8 @@ const schemaWithMiddleware = applyMiddleware(schema, permissions)
 const server = new ApolloServer({
   schema: schemaWithMiddleware,
   dataSources: () => ({
-    storesAPI: new storesAPI()
+    storesAPI: new storesAPI(),
+    gatewaysAPI: new gatewaysAPI()
   }),
   context: ({ req }) => ({
     apiUrl: process.env.MOLTIN_API_URL,

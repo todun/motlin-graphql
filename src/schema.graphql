@@ -3,6 +3,8 @@ type Query {
   stores: [Store!]!
   store(id: ID!): Store!
   keys(storeId: ID): [Key!]!
+  gateways: [Gateway!]!
+  gateway(slug: String!): Gateway!
 }
 
 type Mutation {
@@ -59,8 +61,48 @@ type SuccessPayload {
   message: String
 }
 
-type Gateway {
-  id: ID!
+union Gateway = Stripe | Adyen | Braintree | CardConnect | Manual
+
+type Stripe {
+  name: String
+  slug: String
+  login: String
+  enabled: Boolean
+}
+
+type Adyen {
+  name: String
+  slug: String
+  username: String
+  merchant_account: String
+  password: String
+  test: Boolean
+  enabled: Boolean
+}
+
+type Braintree {
+  name: String
+  slug: String
+  merchant_id: String
+  private_key: String
+  public_key: String
+  environment: String
+  enabled: Boolean
+}
+
+type CardConnect {
+  name: String
+  slug: String
+  merchant_id: String
+  username: String
+  password: String
+  test: Boolean
+}
+
+type Manual {
+  name: String
+  slug: String
+  enabled: Boolean
 }
 
 enum GRANT_TYPE {
