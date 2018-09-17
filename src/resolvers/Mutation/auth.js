@@ -71,5 +71,27 @@ module.exports = {
     })
 
     return data
+  },
+
+  // TODO: Add error handling
+  async refreshToken(_, { token: refresh_token }, { authUrl, apiUrl }) {
+    const data = await request.post({
+      uri: authUrl,
+      body: {
+        grant_type: 'refresh_token',
+        refresh_token
+      },
+      json: true
+    })
+
+    const { data: user } = await request({
+      uri: `${apiUrl}/v1/accounts`,
+      json: true,
+      headers: {
+        Authorization: data.access_token
+      }
+    })
+
+    return { ...data, user }
   }
 }

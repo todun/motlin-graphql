@@ -27,6 +27,7 @@ type Mutation {
     client_secret: String
     grant_type: GRANT_TYPE
   ): AuthPayload!
+  refreshToken(token: String!): AuthPayload!
   updateStore(id: ID!, name: String!): Store!
   createStore(name: String!): Store!
   switchStore(id: ID!): SuccessPayload!
