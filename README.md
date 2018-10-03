@@ -5,7 +5,8 @@
 ## Setup
 
 1. `git clone https://github.com/moltin/graphql.git`
-2. `yarn`
-3. `.env.sample .env`
-4. `yarn dev`
-5. Open [http://localhost:4000](http://localhost:4000)
+2. `cd graphql`
+3. `yarn`
+4. `cp .env.sample .env`
+5. `yarn dev`
+6. Open [http://localhost:4000](http://localhost:4000)
