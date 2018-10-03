@@ -1,7 +1,8 @@
 {
   "alias": "cli.moltin.com",
-  "dotenv": true,
   "env": {
+    "MOLTIN_API_PASSWORD_AUTH_URL": "@moltin-api-password-auth-url",
+    "MOLTIN_API_URL": "@moltin-api-url",
     "NODE_ENV": "production"
   }
 }
