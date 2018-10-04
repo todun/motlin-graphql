@@ -5,6 +5,13 @@ type Query {
   keys(storeId: ID): [Key!]!
   gateways: [Gateway!]!
   gateway(slug: String!): Gateway!
+  products(
+    dir: SORT_DIR
+    limit: Int
+    offset: Int
+    sort: PRODUCT_SORT_FIELDS
+  ): [Product!]
+  product(id: ID!): Product
 }
 
 type Mutation {
@@ -23,6 +30,21 @@ type Mutation {
   updateStore(id: ID!, name: String!): Store!
   createStore(name: String!): Store!
   switchStore(id: ID!): SuccessPayload!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  sku: String!
+  slug: String!
+  price: [ProductPrice!]
+}
+
+type ProductPrice {
+  amount: Int!
+  currency: String!
+  includes_tax: Boolean!
 }
 
 type User {
@@ -109,4 +131,16 @@ type Manual {
 enum GRANT_TYPE {
   implicit
   client_credentials
+}
+
+enum SORT_DIR {
+  asc
+  desc
+}
+
+enum PRODUCT_SORT_FIELDS {
+  description
+  name
+  sku
+  slug
 }
