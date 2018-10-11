@@ -24,6 +24,10 @@ class StoresAPI extends V1API {
   async switchStore(id) {
     return this.get(`account/stores/switch/${id}`)
   }
+
+  async addUser(id, data) {
+    return this.post(`accounts/stores/${id}/users`, data)
+  }
 }
 
 module.exports = StoresAPI

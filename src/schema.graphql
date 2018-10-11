@@ -31,6 +31,18 @@ type Mutation {
   renameStore(id: ID!, newName: String!): Store!
   createStore(name: String!): Store!
   switchStore(id: ID!): SuccessPayload!
+  addUserToStore(
+    id: ID!
+    name: String
+    email: String!
+    role: UserRole
+  ): SuccessPayload!
+}
+
+type Invitee {
+  name: String
+  email: String!
+  role: UserRole!
 }
 
 type Product {
@@ -144,4 +156,9 @@ enum PRODUCT_SORT_FIELDS {
   name
   sku
   slug
+}
+
+enum UserRole {
+  USER
+  ADMIN
 }

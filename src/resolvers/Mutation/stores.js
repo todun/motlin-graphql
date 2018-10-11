@@ -35,5 +35,27 @@ module.exports = {
       success: status === 200,
       message
     }
+  },
+
+  async addUserToStore(
+    _,
+    { id, name, email, role: roleEnum = 'USER' },
+    { dataSources }
+  ) {
+    const role = roleEnum === 'USER' ? 1 : 2
+
+    const {
+      status: success,
+      data: message
+    } = await dataSources.storesAPI.addUser(id, {
+      name,
+      email,
+      role
+    })
+
+    return {
+      success,
+      message
+    }
   }
 }
