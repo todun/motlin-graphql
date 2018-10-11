@@ -8,6 +8,6 @@ module.exports = {
   },
   Mutation: {
     createStore: isAuthenticated,
-    updateStore: isAuthenticated
+    renameStore: isAuthenticated
   }
 }

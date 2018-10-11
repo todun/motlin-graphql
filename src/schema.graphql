@@ -28,7 +28,7 @@ type Mutation {
     grant_type: GRANT_TYPE
   ): AuthPayload!
   refreshToken(token: String!): AuthPayload!
-  updateStore(id: ID!, name: String!): Store!
+  renameStore(id: ID!, newName: String!): Store!
   createStore(name: String!): Store!
   switchStore(id: ID!): SuccessPayload!
 }
