@@ -12,6 +12,27 @@ type Query {
     sort: PRODUCT_SORT_FIELDS
   ): [Product!]
   product(id: ID!): Product
+  brands(
+    dir: SORT_DIR
+    limit: Int
+    offset: Int
+    sort: CATALOGUE_SORT_FIELDS
+  ): [Brand!]
+  brand(id: ID!): Brand
+  categories(
+    dir: SORT_DIR
+    limit: Int
+    offset: Int
+    sort: CATALOGUE_SORT_FIELDS
+  ): [Category!]
+  category(id: ID!): Category
+  collections(
+    dir: SORT_DIR
+    limit: Int
+    offset: Int
+    sort: CATALOGUE_SORT_FIELDS
+  ): [Collection!]
+  collection(id: ID!): Collection
 }
 
 type Mutation {
@@ -45,13 +66,14 @@ type Invitee {
   role: UserRole!
 }
 
-type Product {
+type Product implements CatalogueResource {
   id: ID!
   name: String!
   description: String!
+  price: [ProductPrice!]
   sku: String!
   slug: String!
-  price: [ProductPrice!]
+  status: CATALOGUE_STATUS!
 }
 
 type ProductPrice {
@@ -141,6 +163,30 @@ type Manual {
   enabled: Boolean
 }
 
+type Brand implements CatalogueResource {
+  id: ID!
+  name: String!
+  description: String!
+  slug: String!
+  status: CATALOGUE_STATUS!
+}
+
+type Category implements CatalogueResource {
+  id: ID!
+  name: String!
+  description: String!
+  slug: String!
+  status: CATALOGUE_STATUS!
+}
+
+type Collection implements CatalogueResource {
+  id: ID!
+  name: String!
+  description: String!
+  slug: String!
+  status: CATALOGUE_STATUS!
+}
+
 enum GRANT_TYPE {
   implicit
   client_credentials
@@ -149,6 +195,20 @@ enum GRANT_TYPE {
 enum SORT_DIR {
   asc
   desc
+}
+
+enum CATALOGUE_SORT_FIELDS {
+  created_at
+  description
+  name
+  slug
+  status
+  updated_at
+}
+
+enum CATALOGUE_STATUS {
+  draft
+  live
 }
 
 enum PRODUCT_SORT_FIELDS {
@@ -161,4 +221,12 @@ enum PRODUCT_SORT_FIELDS {
 enum UserRole {
   USER
   ADMIN
+}
+
+interface CatalogueResource {
+  id: ID!
+  name: String!
+  description: String!
+  slug: String!
+  status: CATALOGUE_STATUS!
 }

@@ -1,12 +1,24 @@
 module.exports = {
-  async gateways(_, args, { dataSources }) {
-    const { data } = await dataSources.gatewaysAPI.allGateways()
+  async gateways(
+    _,
+    args,
+    {
+      dataSources: { gatewaysAPI }
+    }
+  ) {
+    const { data } = await gatewaysAPI.findAll()
 
     return data
   },
 
-  async gateway(_, { slug }, { dataSources }) {
-    const { data } = await dataSources.gatewaysAPI.getGateway(slug)
+  async gateway(
+    _,
+    { slug },
+    {
+      dataSources: { gatewaysAPI }
+    }
+  ) {
+    const { data } = await gatewaysAPI.findBySlug(slug)
 
     return data
   }

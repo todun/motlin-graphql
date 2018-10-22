@@ -1,16 +1,13 @@
 const V2API = require('./v2')
 
 class GatewaysAPI extends V2API {
-  async allGateways() {
-    return this.get('gateways')
-  }
-
-  async getGateway(slug) {
-    return this.get(`gateways/${slug}`)
+  constructor() {
+    super()
+    this.resource = 'gateways'
   }
 
   async update(slug, data) {
-    return this.put(`gateways/${slug}`, data)
+    return this.put(`${this.resource}/${slug}`, data)
   }
 }
 

@@ -6,7 +6,7 @@ module.exports = {
       dataSources: { productsAPI }
     }
   ) {
-    const { data } = await productsAPI.allProducts({ dir, limit, offset, sort })
+    const { data } = await productsAPI.findAll({ dir, limit, offset, sort })
 
     return data
   },
@@ -18,7 +18,7 @@ module.exports = {
       dataSources: { productsAPI }
     }
   ) {
-    const { data } = await productsAPI.getProduct(id)
+    const { data } = await productsAPI.findByID(id)
 
     return data
   }
