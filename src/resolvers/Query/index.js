@@ -5,6 +5,7 @@ const products = require('./products')
 const brands = require('./brands')
 const categories = require('./categories')
 const collections = require('./collections')
+const integrations = require('./integrations')
 
 module.exports = {
   ...accounts,
@@ -13,5 +14,6 @@ module.exports = {
   ...products,
   ...brands,
   ...categories,
-  ...collections
+  ...collections,
+  ...integrations
 }

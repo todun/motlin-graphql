@@ -33,6 +33,8 @@ type Query {
     sort: CATALOGUE_SORT_FIELDS
   ): [Collection!]
   collection(id: ID!): Collection
+  integrations: [Integration!]
+  integration(id: ID!): Integration
 }
 
 type Mutation {
@@ -58,6 +60,7 @@ type Mutation {
     email: String!
     role: UserRole
   ): SuccessPayload!
+  enableIntegrationFromTemplate(type: INTEGRATION_TEMPLATE!): Integration!
 }
 
 type Invitee {
@@ -187,6 +190,21 @@ type Collection implements CatalogueResource {
   status: CATALOGUE_STATUS!
 }
 
+type Integration {
+  id: ID!
+  name: String!
+  description: String!
+  integration_type: INTEGRATION_TYPE!
+  enabled: Boolean!
+  observes: [String!]
+  configuration: INTEGRATION_CONFIG
+}
+
+type INTEGRATION_CONFIG {
+  secret_key: String
+  url: String!
+}
+
 enum GRANT_TYPE {
   implicit
   client_credentials
@@ -221,6 +239,15 @@ enum PRODUCT_SORT_FIELDS {
 enum UserRole {
   USER
   ADMIN
+}
+
+enum INTEGRATION_TYPE {
+  webhook
+}
+
+enum INTEGRATION_TEMPLATE {
+  ORDER_CONFIRMATION_EMAIL
+  ORDER_SHIPPED_EMAIL
 }
 
 interface CatalogueResource {
