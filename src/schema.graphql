@@ -35,6 +35,7 @@ type Query {
   collection(id: ID!): Collection
   integrations: [Integration!]
   integration(id: ID!): Integration
+  inventory(productID: ID!): Inventory
 }
 
 type Mutation {
@@ -77,6 +78,7 @@ type Product implements CatalogueResource {
   sku: String!
   slug: String!
   status: CATALOGUE_STATUS!
+  inventory: Inventory!
 }
 
 type ProductPrice {
@@ -188,6 +190,12 @@ type Collection implements CatalogueResource {
   description: String!
   slug: String!
   status: CATALOGUE_STATUS!
+}
+
+type Inventory {
+  allocated: Int!
+  available: Int!
+  total: Int!
 }
 
 type Integration {

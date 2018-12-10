@@ -21,5 +21,19 @@ module.exports = {
           return null
       }
     }
+  },
+
+  Product: {
+    async inventory(
+      { id: productID },
+      args,
+      {
+        dataSources: { inventoriesAPI }
+      }
+    ) {
+      const { data } = await inventoriesAPI.findByID(productID)
+
+      return data
+    }
   }
 }

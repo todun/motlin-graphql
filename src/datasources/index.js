@@ -3,6 +3,7 @@ const categoriesAPI = require('./categories')
 const collectionsAPI = require('./collections')
 const gatewaysAPI = require('./gateways')
 const integrationsAPI = require('./integrations')
+const inventoriesAPI = require('./inventories')
 const productsAPI = require('./products')
 const storesAPI = require('./stores')
 
@@ -12,6 +13,7 @@ module.exports = () => ({
   collectionsAPI: new collectionsAPI(),
   gatewaysAPI: new gatewaysAPI(),
   integrationsAPI: new integrationsAPI(),
+  inventoriesAPI: new inventoriesAPI(),
   productsAPI: new productsAPI(),
   storesAPI: new storesAPI()
 })
