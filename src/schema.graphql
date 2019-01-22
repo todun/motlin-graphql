@@ -79,6 +79,7 @@ type Product implements CatalogueResource {
   slug: String!
   status: CATALOGUE_STATUS!
   inventory: Inventory!
+  main_image: File
 }
 
 type ProductPrice {
@@ -196,6 +197,14 @@ type Inventory {
   allocated: Int!
   available: Int!
   total: Int!
+}
+
+type File {
+  id: ID!
+  file_name: String!
+  file_size: Int!
+  href: String!
+  public: Boolean!
 }
 
 type Integration {

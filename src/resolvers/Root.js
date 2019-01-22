@@ -34,6 +34,34 @@ module.exports = {
       const { data } = await inventoriesAPI.findByID(productID)
 
       return data
+    },
+
+    async main_image(
+      { relationships },
+      args,
+      {
+        dataSources: { filesAPI }
+      }
+    ) {
+      if (!relationships || !relationships.main_image) return
+
+      const {
+        main_image: {
+          data: { id: fileID }
+        }
+      } = relationships
+
+      const {
+        data: {
+          link: { href },
+          ...rest
+        }
+      } = await filesAPI.findByID(fileID)
+
+      return {
+        href,
+        ...rest
+      }
     }
   }
 }

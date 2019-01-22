@@ -10,6 +10,7 @@
   "dependencies": {
     "apollo-datasource-rest": "0.1.5",
     "apollo-server": "2.0.7",
+    "dataloader": "^1.4.0",
     "graphql": "14.0.2",
     "graphql-import": "0.7.0",
     "graphql-middleware": "1.7.2",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {
     "dotenv": "6.0.0",
-    "nodemon": "1.18.4",
+    "nodemon": "^1.18.9",
     "prettier": "1.14.2"
   }
 }
