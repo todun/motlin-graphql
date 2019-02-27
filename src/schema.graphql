@@ -36,6 +36,7 @@ type Query {
   integrations: [Integration!]
   integration(id: ID!): Integration
   inventory(productID: ID!): Inventory
+  cart(cartID: ID!): Cart
 }
 
 type Mutation {
@@ -62,6 +63,19 @@ type Mutation {
     role: UserRole
   ): SuccessPayload!
   enableIntegrationFromTemplate(type: INTEGRATION_TEMPLATE!): Integration!
+}
+
+type Cart {
+  id: ID!
+  items: [CartItem]
+}
+
+type CartItem {
+  id: ID!
+  type: String!
+  name: String!
+  description: String
+  quantity: Int!
 }
 
 type Invitee {

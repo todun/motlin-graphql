@@ -1,4 +1,5 @@
 const brandsAPI = require('./brands')
+const cartsAPI = require('./carts')
 const categoriesAPI = require('./categories')
 const collectionsAPI = require('./collections')
 const filesAPI = require('./files')
@@ -10,6 +11,7 @@ const storesAPI = require('./stores')
 
 module.exports = () => ({
   brandsAPI: new brandsAPI(),
+  cartsAPI: new cartsAPI(),
   categoriesAPI: new categoriesAPI(),
   collectionsAPI: new collectionsAPI(),
   filesAPI: new filesAPI(),
