@@ -32,7 +32,7 @@ const server = new ApolloServer({
       req.get('Authorization').replace('Bearer ', '')
   }),
   engine: {
-    apiKey: process.env.APOLLO_ENGINE_API_KEY
+    apiKey: process.env.ENGINE_API_KEY
   },
   introspection: true,
   // introspection: process.env.NODE_ENV !== 'production',
