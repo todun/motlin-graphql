@@ -27,7 +27,7 @@ module.exports = {
   async login(_, { email, password }, { authUrl, apiUrl }) {
     const data = await request.post({
       uri: authUrl,
-      body: {
+      form: {
         username: email,
         password,
         grant_type: 'password'
