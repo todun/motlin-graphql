@@ -3,7 +3,7 @@
   "alias": "graphql.moltin.com",
   "env": {
     "ENGINE_API_KEY": "@graphql-apollo-engine-api-key",
-    "MOLTIN_API_PASSWORD_AUTH_URL": "@moltin-api-password-auth-url",
+    "MOLTIN_API_PASSWORD_AUTH_URL": "@graphql-moltin-auth-url",
     "MOLTIN_API_URL": "@moltin-api-url",
     "MOLTIN_INTEGRATION_FUNCTIONS_URL": "@moltin-integration-functions-url",
     "NODE_ENV": "production"

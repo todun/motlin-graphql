@@ -26,7 +26,7 @@ const server = new ApolloServer({
   dataSources,
   context: ({ req }) => ({
     apiUrl: process.env.MOLTIN_API_URL,
-    authUrl: process.env.MOLTIN_API_PASSWORD_AUTH_URL,
+    authUrl: process.env.MOLTIN_AUTH_URL,
     token:
       req.get('Authorization') &&
       req.get('Authorization').replace('Bearer ', '')
