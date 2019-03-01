@@ -77,6 +77,13 @@ type CartItem {
   name: String!
   description: String
   quantity: Int!
+  image: CartItemImage
+}
+
+type CartItemImage {
+  file_name: String!
+  mime_type: String!
+  href: String!
 }
 
 type Invitee {
