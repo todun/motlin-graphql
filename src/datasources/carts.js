@@ -9,6 +9,16 @@ class CartsAPI extends V2API {
   async getCartItems(cartID) {
     return this.get(`${this.resource}/${cartID}/items`)
   }
+
+  async addProductToCart(cartID, { productID: id, quantity }) {
+    return this.post(`${this.resource}/${cartID}/items`, {
+      data: {
+        id,
+        quantity,
+        type: 'cart_item'
+      }
+    })
+  }
 }
 
 module.exports = CartsAPI
