@@ -1,12 +1,14 @@
-# GraphQL
+# [graphql.moltin.com](https://graphql.moltin.com)
 
-> This GraphQL server provides a gateway for _an upcoming example_ 🤫 and legacy v1 endpoints.
+⚛️ GraphQL API for Moltin eCommerce
 
-## Setup
+## Development
 
-1. `git clone https://github.com/moltin/graphql.git`
-2. `cd graphql`
-3. `yarn`
-4. `cp .env.sample .env`
-5. `yarn dev`
-6. Open [http://localhost:4000](http://localhost:4000)
+*This API is an ongoing project. To see what is currently possible with this implementation, please browse the [schema](https://graphql.moltin.com/).*
+
+Create a `.env` at the project root with the following variables.
+
+```dosini
+MOLTIN_API_URL=https://api.moltin.com
+MOLTIN_AUTH_URL=https://api.dashboard.moltin.com/token
+```
