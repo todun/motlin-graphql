@@ -12,7 +12,7 @@ module.exports = {
 
     const data = await request.post({
       uri: authUrl,
-      body: {
+      form: {
         username: args.email,
         password: args.password,
         grant_type: 'password'
@@ -77,7 +77,7 @@ module.exports = {
   async refreshToken(_, { token: refresh_token }, { authUrl, apiUrl }) {
     const data = await request.post({
       uri: authUrl,
-      body: {
+      form: {
         grant_type: 'refresh_token',
         refresh_token
       },
