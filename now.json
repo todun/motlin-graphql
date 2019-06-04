@@ -6,15 +6,5 @@
     "MOLTIN_API_URL": "@moltin-api-url",
     "MOLTIN_INTEGRATION_FUNCTIONS_URL": "@moltin-integration-functions-url",
     "NODE_ENV": "production"
-  },
-  "scale": {
-    "bru1": {
-      "min": 1,
-      "max": "auto"
-    },
-    "sfo1": {
-      "min": 1,
-      "max": "auto"
-    }
   }
 }
