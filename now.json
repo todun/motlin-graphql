@@ -1,10 +1,22 @@
 {
-  "version": 1,
   "alias": "graphql.moltin.com",
+  "builds": [
+    {
+      "src": "src/index.js",
+      "use": "@now/node"
+    }
+  ],
   "env": {
     "MOLTIN_AUTH_URL": "@graphql-moltin-auth-url",
     "MOLTIN_API_URL": "@moltin-api-url",
     "MOLTIN_INTEGRATION_FUNCTIONS_URL": "@moltin-integration-functions-url",
     "NODE_ENV": "production"
-  }
+  },
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "src/index.js"
+    }
+  ],
+  "version": 2
 }

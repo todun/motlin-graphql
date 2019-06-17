@@ -1,5 +1,5 @@
 const request = require('request-promise')
-const { ApolloError } = require('apollo-server')
+const { ApolloError } = require('apollo-server-micro')
 
 module.exports = {
   // TODO: Add error handling
